@@ -104,6 +104,9 @@ alarm_control_panel:
               - alarm_control_panel.alarm_panel_1
               - alarm_control_panel.alarm_panel_2
 
+camera:
+  - platform: demo
+
 lovelace: !include ui-lovelace.yaml
 
 frontend:

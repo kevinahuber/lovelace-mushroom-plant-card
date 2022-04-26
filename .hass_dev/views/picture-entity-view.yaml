@@ -1,0 +1,10 @@
+title: Picture
+icon: mdi:camera
+cards:
+  - type: grid
+    title: Simple
+    cards:
+      - type: custom:mushroom-picture-entity-card
+        entity: camera.demo_camera
+    columns: 2
+    square: false
