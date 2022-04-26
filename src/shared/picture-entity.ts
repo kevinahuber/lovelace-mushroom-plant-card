@@ -1,18 +1,18 @@
 import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
-import { property, customElement } from "lit/decorators.js";
-import { classMap } from "lit/directives/class-map.js";
-import { Layout } from "../utils/layout";
+import { customElement } from "lit/decorators.js";
 
 @customElement("mushroom-picture-entity")
 export class PictureEntity extends LitElement {
-    @property({ attribute: "no-card-style", type: Boolean }) public noCardStyle?: boolean;
-
-    @property() public layout: Layout = "default";
-
     protected render(): TemplateResult {
         return html`
             <ha-card>
                 <slot></slot>
+                <div class="footer">
+                    <div class="chip">
+                        <ha-icon .icon=${"mdi:camera"}></ha-icon>
+                        <ha-icon .icon=${"mdi:account"}></ha-icon>
+                    </div>
+                </div>
             </ha-card>
         `;
     }
@@ -26,33 +26,35 @@ export class PictureEntity extends LitElement {
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
+                overflow: hidden;
             }
-            .container {
+            .footer {
+                position: absolute;
+                left: 0px;
+                right: 0px;
+                bottom: 0px;
                 display: flex;
-                flex-direction: column;
-                flex-shrink: 0;
-                flex-grow: 0;
-                box-sizing: border-box;
-                justify-content: center;
-            }
-            .container > ::slotted(*:not(:last-child)) {
-                margin-bottom: var(--spacing);
-            }
-            .container.horizontal {
                 flex-direction: row;
+                align-items: center;
+                padding: 1em;
             }
-            .container.horizontal > ::slotted(*) {
-                flex: 1;
-                min-width: 0;
+            .chip {
+                box-sizing: border-box;
+                height: 4rem;
+                border-radius: 3rem;
+                border: 1px solid #b9b9b9;
+                backdrop-filter: blur(20px);
+                display: inline-flex;
+                align-items: center;
+                padding: 1em;
+                gap: 1.5em;
             }
-            .container.horizontal > ::slotted(*:not(:last-child)) {
-                margin-right: var(--spacing);
-                margin-bottom: 0;
-            }
-            :host([rtl]) .container.horizontal > ::slotted(*:not(:last-child)) {
-                margin-right: initial;
-                margin-left: var(--spacing);
-                margin-bottom: 0;
+            .chip ha-icon {
+                display: flex;
+                --mdc-icon-size: 2em;
+                color: white;
+                transition: color 280ms ease-in-out;
+                animation: var(--icon-animation);
             }
         `;
     }

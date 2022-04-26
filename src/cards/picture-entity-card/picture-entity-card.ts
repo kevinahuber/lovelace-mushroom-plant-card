@@ -45,10 +45,10 @@ export class PictureEntityCard extends LitElement implements LovelaceCard {
 
     public static async getStubConfig(hass: HomeAssistant): Promise<PictureEntityCardConfig> {
         const entities = Object.keys(hass.states);
-        const people = entities.filter((e) => PICTURE_ENTITY_DOMAINS.includes(e.split(".")[0]));
+        const pictures = entities.filter((e) => PICTURE_ENTITY_DOMAINS.includes(e.split(".")[0]));
         return {
             type: `custom:${PICTURE_CARD_NAME}`,
-            entity: people[0],
+            entity: pictures[0],
         };
     }
 
@@ -103,7 +103,7 @@ export class PictureEntityCard extends LitElement implements LovelaceCard {
         return html`
             <div>
                 <mushroom-picture-entity .layout=${layout} ?rtl=${rtl}>
-                    test
+                    <img src=${picture} />
                 </mushroom-picture-entity>
             </div>
         `;
