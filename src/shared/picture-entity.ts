@@ -11,19 +11,18 @@ export class PictureEntity extends LitElement {
 
     protected render(): TemplateResult {
         return html`
-            <div>
-                fewf
-            </div>
+            <ha-card>
+                <slot></slot>
+            </ha-card>
         `;
     }
-
 
     static get styles(): CSSResultGroup {
         return css`
             ha-card {
                 height: 100%;
                 box-sizing: border-box;
-                padding: var(--spacing);
+                padding: 0px;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;

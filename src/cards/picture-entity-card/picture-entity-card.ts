@@ -16,12 +16,17 @@ import "../../shared/badge-icon";
 import "../../shared/card";
 import "../../shared/shape-avatar";
 import "../../shared/shape-icon";
+import "../../shared/picture-entity";
 import { cardStyle } from "../../utils/card-styles";
 import { registerCustomCard } from "../../utils/custom-cards";
 import { actionHandler } from "../../utils/directives/action-handler-directive";
 import { stateIcon as stateIconHelper } from "../../utils/icons/state-icon";
 import { getLayoutFromConfig } from "../../utils/layout";
-import { PICTURE_ENTITY_CARD_EDITOR_NAME, PICTURE_CARD_NAME, PICTURE_ENTITY_DOMAINS } from "./const";
+import {
+    PICTURE_ENTITY_CARD_EDITOR_NAME,
+    PICTURE_CARD_NAME,
+    PICTURE_ENTITY_DOMAINS,
+} from "./const";
 import { PictureEntityCardConfig } from "./picture-entity-card-config";
 import { getStateColor, getStateIcon } from "./utils";
 
@@ -96,19 +101,15 @@ export class PictureEntityCard extends LitElement implements LovelaceCard {
         const rtl = computeRTL(this.hass);
 
         return html`
-            <mushroom-picture-entity .layout=${layout} ?rtl=${rtl}>
-                test
-            </mushroom-picture-entity>
+            <div>
+                <mushroom-picture-entity .layout=${layout} ?rtl=${rtl}>
+                    test
+                </mushroom-picture-entity>
+            </div>
         `;
     }
 
-
     static get styles(): CSSResultGroup {
-        return [
-            cardStyle,
-            css`
-            
-            `,
-        ];
+        return [cardStyle, css``];
     }
 }
