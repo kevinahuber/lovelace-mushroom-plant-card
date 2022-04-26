@@ -96,11 +96,9 @@ export class PictureEntityCard extends LitElement implements LovelaceCard {
         const rtl = computeRTL(this.hass);
 
         return html`
-            <mushroom-card .layout=${layout} ?rtl=${rtl}>
-                <div class="container">
-                    <img src=${picture} />
-                </div>
-            </mushroom-card>
+            <mushroom-picture-entity .layout=${layout} ?rtl=${rtl}>
+                test
+            </mushroom-picture-entity>
         `;
     }
 
@@ -109,9 +107,7 @@ export class PictureEntityCard extends LitElement implements LovelaceCard {
         return [
             cardStyle,
             css`
-                mushroom-state-item {
-                    cursor: pointer;
-                }
+            
             `,
         ];
     }
