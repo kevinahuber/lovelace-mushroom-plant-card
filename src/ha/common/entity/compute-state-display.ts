@@ -9,7 +9,6 @@ import {
 } from "custom-card-helpers";
 import { HassEntity } from "home-assistant-js-websocket";
 import { UNAVAILABLE, UNKNOWN } from "../../data/entity";
-import { updateIsInstalling, UpdateEntity, UPDATE_SUPPORT_PROGRESS } from "../../data/update";
 import { computeStateDomain } from "./compute-state-domain";
 import { supportsFeature } from "./supports-feature";
 
@@ -129,26 +128,6 @@ export const computeStateDisplay = (
         } catch (_err) {
             return compareState;
         }
-    }
-
-    if (domain === "update") {
-        // When updating, and entity does not support % show "Installing"
-        // When updating, and entity does support % show "Installing (xx%)"
-        // When update available, show the version
-        // When the latest version is skipped, show the latest version
-        // When update is not available, show "Up-to-date"
-        // When update is not available and there is no latest_version show "Unavailable"
-        return compareState === "on"
-            ? updateIsInstalling(stateObj as UpdateEntity)
-                ? supportsFeature(stateObj, UPDATE_SUPPORT_PROGRESS)
-                    ? localize("ui.card.update.installing_with_progress", {
-                          progress: stateObj.attributes.in_progress,
-                      })
-                    : localize("ui.card.update.installing")
-                : stateObj.attributes.latest_version
-            : stateObj.attributes.skipped_version === stateObj.attributes.latest_version
-            ? stateObj.attributes.latest_version ?? localize("state.default.unavailable")
-            : localize("ui.card.update.up_to_date");
     }
 
     return (

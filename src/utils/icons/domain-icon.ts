@@ -1,5 +1,4 @@
 import { HassEntity } from "home-assistant-js-websocket";
-import { UpdateEntity, updateIsInstalling } from "../../ha/data/update";
 import { alarmPanelIcon } from "./alarm-panel-icon";
 import { binarySensorIcon } from "./binary-sensor-icon";
 import { coverIcon } from "./cover-icon";
@@ -148,13 +147,6 @@ export function domainIcon(domain: string, entity?: HassEntity, state?: string):
             return entity?.state === "above_horizon"
                 ? FIXED_DOMAIN_ICONS[domain]
                 : "mdi:weather-night";
-
-        case "update":
-            return entity?.state === "on"
-                ? updateIsInstalling(entity as UpdateEntity)
-                    ? "mdi:package-down"
-                    : "mdi:package-up"
-                : "mdi:package";
     }
 
     if (domain in FIXED_DOMAIN_ICONS) {
