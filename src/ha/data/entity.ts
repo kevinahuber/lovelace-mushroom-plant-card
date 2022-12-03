@@ -13,17 +13,6 @@ export function isActive(entity: HassEntity) {
 
     // Custom cases
     switch (domain) {
-        case "alarm_control_panel":
-            return state !== "disarmed";
-        case "lock":
-            return state !== "unlocked";
-        case "cover":
-            return state === "open" || state === "opening";
-        case "device_tracker":
-        case "person":
-            return state === "home";
-        case "vacuum":
-            return state === "cleaning" || state === "on";
         case "plant":
             return state === "problem";
         default:
