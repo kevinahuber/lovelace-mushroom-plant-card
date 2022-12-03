@@ -79,7 +79,7 @@ Different cards are available for differents entities :
 -   🧹 [Vacuum card](docs/cards/vacuum.md)
 -   📺 [Media card](docs/cards/media-player.md)
 -   🔒 [Lock card](docs/cards/lock.md)
--   💧 [Humidifier card](docs/cards/humidifier.md)
+-   🌱 [Plant card](docs/cards/plant.md)
 
 Cards on the todo list :
 
@@ -102,7 +102,7 @@ npm run start:hass
 Once it's done, go to Home Assistant instance [http://localhost:8123](http://localhost:8123) and start configuration.
 
 
-#### Windows Users 
+#### Windows Users
 If you are on Windows, either run the above command in Powershell, or use the below if using Command Prompt:
 ```sh
 npm run start:hass-cmd
@@ -126,6 +126,7 @@ Once both Home Assistant and mushroom are running, you have to add a resource to
 -   Enable `Advanced Mode` in your profile page
 -   Go to Dashboard Resources and add the ressource `http://localhost:5000/mushroom.js`:  
     _Settings_ → _Dashboards_ → _More Options icon_ → _Resources_ → _Add Resource_ → Set _URL_ as `http://localhost:5000/mushroom.js` → Set _Resource type_ as `JavaScript Module`.
+
 
 ### Build
 
