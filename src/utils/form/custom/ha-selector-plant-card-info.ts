@@ -10,7 +10,7 @@ export type MushInfoSelector = {
     };
 };
 
-@customElement("ha-selector-mush-info")
+@customElement("ha-selector-plant-card-info")
 export class HaMushInfoSelector extends LitElement {
     @property() public hass!: HomeAssistant;
 
@@ -22,13 +22,13 @@ export class HaMushInfoSelector extends LitElement {
 
     protected render() {
         return html`
-            <mushroom-info-picker
+            <mushroom-plant-card-info-picker
                 .hass=${this.hass}
                 .infos=${this.selector["mush-info"].infos}
                 .label=${this.label}
                 .value=${this.value}
                 @value-changed=${this._valueChanged}
-            ></mushroom-info-picker>
+            ></mushroom-plant-card-info-picker>
         `;
     }
 

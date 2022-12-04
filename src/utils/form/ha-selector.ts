@@ -1,8 +1,8 @@
-import { MushActionSelector } from "./custom/ha-selector-mushroom-action";
-import { MushColorSelector } from "./custom/ha-selector-mushroom-color";
-import { MushInfoSelector } from "./custom/ha-selector-mushroom-info";
-import { MushLayoutSelector } from "./custom/ha-selector-mushroom-layout";
-import { MushAlignementSelector } from "./custom/ha-selector-mushroom-alignment";
+import { MushActionSelector } from "./custom/ha-selector-plant-card-action";
+import { MushColorSelector } from "./custom/ha-selector-plant-card-color";
+import { MushInfoSelector } from "./custom/ha-selector-plant-card-info";
+import { MushLayoutSelector } from "./custom/ha-selector-plant-card-layout";
+import { MushAlignementSelector } from "./custom/ha-selector-plant-card-alignment";
 
 type MushSelector =
     | MushColorSelector

@@ -1,17 +1,20 @@
-import { fireEvent, HomeAssistant } from "custom-card-helpers";
+import { ActionConfig, fireEvent, HomeAssistant } from "custom-card-helpers";
 import { html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
-import "../../../shared/editor/alignment-picker";
+import "../../../shared/editor/action-picker";
 
-export type MushAlignementSelector = {
-    "mush-alignment": {};
+export type Action = ActionConfig["action"];
+export type MushActionSelector = {
+    "mush-action": {
+        actions?: Action[];
+    };
 };
 
-@customElement("ha-selector-mush-alignment")
-export class HaMushAlignmentSelector extends LitElement {
+@customElement("ha-selector-plant-card-action")
+export class HaMushActionSelector extends LitElement {
     @property() public hass!: HomeAssistant;
 
-    @property() public selector!: MushAlignementSelector;
+    @property() public selector!: MushActionSelector;
 
     @property() public value?: string;
 
@@ -19,12 +22,13 @@ export class HaMushAlignmentSelector extends LitElement {
 
     protected render() {
         return html`
-            <mushroom-alignment-picker
+            <mushroom-plant-card-action-picker
                 .hass=${this.hass}
+                .actions=${this.selector["mush-action"].actions}
                 .label=${this.label}
                 .value=${this.value}
                 @value-changed=${this._valueChanged}
-            ></mushroom-alignment-picker>
+            ></mushroom-plant-card-action-picker>
         `;
     }
 

@@ -26,7 +26,7 @@ import { getLayoutFromConfig } from "../../utils/layout";
 import { PLANT_CARD_EDITOR_NAME, PLANT_CARD_NAME, PLANT_ENTITY_DOMAINS } from "./const";
 import { PlantCardConfig } from "./plant-card-config";
 import { computePlantState } from "./utils";
-import { MushroomBaseElement } from "../../utils/base-element";
+import { PlantCardBaseElement } from "../../utils/base-element";
 
 registerCustomCard({
     type: PLANT_CARD_NAME,
@@ -35,7 +35,7 @@ registerCustomCard({
 });
 
 @customElement(PLANT_CARD_NAME)
-export class PlantCard extends MushroomBaseElement implements LovelaceCard {
+export class PlantCard extends PlantCardBaseElement implements LovelaceCard {
     public static async getConfigElement(): Promise<LovelaceCardEditor> {
         await import("./plant-card-editor");
         return document.createElement(PLANT_CARD_EDITOR_NAME) as LovelaceCardEditor;
@@ -116,9 +116,9 @@ export class PlantCard extends MushroomBaseElement implements LovelaceCard {
 
         return html`
             <ha-card class=${classMap({ "fill-container": this._config.fill_container ?? false })}>
-                <mushroom-card .layout=${layout} ?rtl=${rtl}>
+                <mushroom-plant-card .layout=${layout} ?rtl=${rtl}>
                     <div class="container">
-                        <mushroom-state-item
+                        <mushroom-plant-card-state-item
                             ?rtl=${rtl}
                             .layout=${layout}
                             @action=${this._handleAction}
@@ -129,83 +129,83 @@ export class PlantCard extends MushroomBaseElement implements LovelaceCard {
                         >
                             ${picture
                                 ? html`
-                                      <mushroom-shape-avatar
+                                      <mushroom-plant-card-shape-avatar
                                           slot="icon"
                                           .picture_url=${picture}
-                                      ></mushroom-shape-avatar>
+                                      ></mushroom-plant-card-shape-avatar>
                                   `
                                 : html`
-                                      <mushroom-shape-icon
+                                      <mushroom-plant-card-shape-icon
                                           slot="icon"
                                           .icon=${icon}
-                                      ></mushroom-shape-icon>
+                                      ></mushroom-plant-card-shape-icon>
                                   `}
                             ${isAvailable(entity)
                                 ? isActive(entity)
                                     ? this.renderStateBadge(problemIcon, stateColor)
                                     : null
                                 : this.renderUnavailableBadge()}
-                            <mushroom-state-info
+                            <mushroom-plant-card-state-info
                                 slot="info"
                                 .primary=${!hideName ? name : undefined}
                                 .secondary=${!hideState && stateDisplay}
-                            ></mushroom-state-info>
-                        </mushroom-state-item>
+                            ></mushroom-plant-card-state-info>
+                        </mushroom-plant-card-state-item>
                         <div class="attributes">
-                            <mushroom-status-bar
+                            <mushroom-plant-card-status-bar
                                 .entity=${entity}
                                 icon="mdi:thermometer"
                                 attr="temperature"
                                 .min=${limits["min_temperature"]}
                                 .max=${limits["max_temperature"]}
-                            ></mushroom-status-bar>
-                            <mushroom-status-bar
+                            ></mushroom-plant-card-status-bar>
+                            <mushroom-plant-card-status-bar
                                 .entity=${entity}
                                 icon="mdi:white-balance-sunny"
                                 attr="brightness"
                                 .min=${limits["min_brightness"]}
                                 .max=${limits["max_brightness"]}
-                            ></mushroom-status-bar>
-                            <mushroom-status-bar
+                            ></mushroom-plant-card-status-bar>
+                            <mushroom-plant-card-status-bar
                                 .entity=${entity}
                                 icon="mdi:water-percent"
                                 attr="moisture"
                                 .min=${limits["min_moisture"]}
                                 .max=${limits["max_moisture"]}
-                            ></mushroom-status-bar>
-                            <mushroom-status-bar
+                            ></mushroom-plant-card-status-bar>
+                            <mushroom-plant-card-status-bar
                                 .entity=${entity}
                                 icon="mdi:leaf"
                                 attr="conductivity"
                                 .min=${limits["min_conductivity"]}
                                 .max=${limits["max_conductivity"]}
-                            ></mushroom-status-bar>
+                            ></mushroom-plant-card-status-bar>
                         </div>
                     </div>
-                </mushroom-card>
+                </mushroom-plant-card>
             </ha-card>
         `;
     }
 
     renderStateBadge(icon: string, color: string) {
         return html`
-            <mushroom-badge-icon
+            <mushroom-plant-card-badge-icon
                 slot="badge"
                 .icon=${icon}
                 style=${styleMap({
                     "--main-color": `rgb(${color})`,
                 })}
-            ></mushroom-badge-icon>
+            ></mushroom-plant-card-badge-icon>
         `;
     }
 
     renderUnavailableBadge() {
         return html`
-            <mushroom-badge-icon
+            <mushroom-plant-card-badge-icon
                 class="unavailable"
                 slot="badge"
                 icon="mdi:help"
-            ></mushroom-badge-icon>
+            ></mushroom-plant-card-badge-icon>
         `;
     }
 

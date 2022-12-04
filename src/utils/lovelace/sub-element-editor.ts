@@ -13,7 +13,7 @@ declare global {
     }
 }
 
-@customElement("mushroom-sub-element-editor")
+@customElement("mushroom-plant-card-sub-element-editor")
 export class MushroomSubElementEditor extends LitElement {
     public hass!: HomeAssistant;
 
@@ -56,13 +56,13 @@ export class MushroomSubElementEditor extends LitElement {
             </div>
             ${this.config.type === "chip"
                 ? html`
-                      <mushroom-chip-element-editor
+                      <mushroom-plant-card-chip-element-editor
                           class="editor"
                           .hass=${this.hass}
                           .value=${this.config.elementConfig}
                           @config-changed=${this._handleConfigChanged}
                           @GUImode-changed=${this._handleGUIModeChanged}
-                      ></mushroom-chip-element-editor>
+                      ></mushroom-plant-card-chip-element-editor>
                   `
                 : ""}
         `;

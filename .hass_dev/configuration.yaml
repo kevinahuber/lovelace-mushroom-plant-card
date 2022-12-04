@@ -4,7 +4,6 @@ default_config:
 homeassistant:
   customize:
     plant.tulip:
-      entity_picture: "/local/mushrooms.jpeg"
       limits:
         max_brightness: 60000
         max_conductivity: 2000

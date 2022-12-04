@@ -4,7 +4,7 @@ import { classMap } from "lit/directives/class-map.js";
 import { Layout } from "../utils/layout";
 import "./shape-icon";
 
-@customElement("mushroom-state-item")
+@customElement("mushroom-plant-card-state-item")
 export class StateItem extends LitElement {
     @property() public layout: Layout = "default";
 

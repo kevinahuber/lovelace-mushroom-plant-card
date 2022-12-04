@@ -3,7 +3,7 @@ import { property, customElement } from "lit/decorators.js";
 import { HassEntity } from "home-assistant-js-websocket";
 import { Layout } from "../utils/layout";
 
-@customElement("mushroom-status-bar")
+@customElement("mushroom-plant-card-status-bar")
 export class StatusBar extends LitElement {
     @property() public layout: Layout = "default";
     @property() public entity: HassEntity | undefined;

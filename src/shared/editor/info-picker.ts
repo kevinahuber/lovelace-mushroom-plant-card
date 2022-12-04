@@ -5,7 +5,7 @@ import setupCustomlocalize from "../../localize";
 import { Info, INFOS } from "../../utils/info";
 import "./../form/mushroom-select";
 
-@customElement("mushroom-info-picker")
+@customElement("mushroom-plant-card-info-picker")
 export class InfoPicker extends LitElement {
     @property() public label = "";
 
@@ -34,7 +34,7 @@ export class InfoPicker extends LitElement {
         const customLocalize = setupCustomlocalize(this.hass);
 
         return html`
-            <mushroom-select
+            <mushroom-plant-card-select
                 .label=${this.label}
                 .configValue=${this.configValue}
                 @selected=${this._selectChanged}
@@ -54,13 +54,13 @@ export class InfoPicker extends LitElement {
                         </mwc-list-item>
                     `;
                 })}
-            </mushroom-select>
+            </mushroom-plant-card-select>
         `;
     }
 
     static get styles(): CSSResultGroup {
         return css`
-            mushroom-select {
+            mushroom-plant-card-select {
                 width: 100%;
             }
         `;

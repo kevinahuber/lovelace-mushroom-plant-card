@@ -48,7 +48,7 @@ const plugins = [
 
 export default [
     {
-        input: "src/mushroom.ts",
+        input: "src/plant-card.ts",
         output: {
             dir: "dist",
             format: "es",

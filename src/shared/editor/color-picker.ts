@@ -6,7 +6,7 @@ import setupCustomlocalize from "../../localize";
 import { COLORS, computeColorName, computeRgbColor } from "../../utils/colors";
 import "./../form/mushroom-select";
 
-@customElement("mushroom-color-picker")
+@customElement("mushroom-plant-card-color-picker")
 export class ColorPicker extends LitElement {
     @property() public label = "";
 
@@ -33,7 +33,7 @@ export class ColorPicker extends LitElement {
         const customLocalize = setupCustomlocalize(this.hass);
 
         return html`
-            <mushroom-select
+            <mushroom-plant-card-select
                 .icon=${Boolean(this.value)}
                 .label=${this.label}
                 .configValue=${this.configValue}
@@ -55,7 +55,7 @@ export class ColorPicker extends LitElement {
                         </mwc-list-item>
                     `
                 )}
-            </mushroom-select>
+            </mushroom-plant-card-select>
         `;
     }
 
@@ -72,7 +72,7 @@ export class ColorPicker extends LitElement {
 
     static get styles(): CSSResultGroup {
         return css`
-            mushroom-select {
+            mushroom-plant-card-select {
                 width: 100%;
             }
             .circle-color {

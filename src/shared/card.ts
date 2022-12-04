@@ -3,7 +3,7 @@ import { property, customElement } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
 import { Layout } from "../utils/layout";
 
-@customElement("mushroom-card")
+@customElement("mushroom-plant-card")
 export class Card extends LitElement {
     @property() public layout: Layout = "default";
 

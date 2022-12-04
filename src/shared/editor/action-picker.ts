@@ -4,7 +4,7 @@ import { customElement, property } from "lit/decorators.js";
 
 const DEFAULT_ACTIONS = ["toggle", "more-info", "navigate", "url", "call-service", "none"];
 
-@customElement("mushroom-action-picker")
+@customElement("mushroom-plant-card-action-picker")
 export class ActionPicker extends LitElement {
     @property() public label = "";
 

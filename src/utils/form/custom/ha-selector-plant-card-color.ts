@@ -1,20 +1,17 @@
-import { ActionConfig, fireEvent, HomeAssistant } from "custom-card-helpers";
+import { fireEvent, HomeAssistant } from "custom-card-helpers";
 import { html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
-import "../../../shared/editor/action-picker";
+import "../../../shared/editor/color-picker";
 
-export type Action = ActionConfig["action"];
-export type MushActionSelector = {
-    "mush-action": {
-        actions?: Action[];
-    };
+export type MushColorSelector = {
+    "mush-color": {};
 };
 
-@customElement("ha-selector-mush-action")
-export class HaMushActionSelector extends LitElement {
+@customElement("ha-selector-plant-card-color")
+export class HaMushColorSelector extends LitElement {
     @property() public hass!: HomeAssistant;
 
-    @property() public selector!: MushActionSelector;
+    @property() public selector!: MushColorSelector;
 
     @property() public value?: string;
 
@@ -22,13 +19,12 @@ export class HaMushActionSelector extends LitElement {
 
     protected render() {
         return html`
-            <mushroom-action-picker
+            <mushroom-plant-card-color-picker
                 .hass=${this.hass}
-                .actions=${this.selector["mush-action"].actions}
                 .label=${this.label}
                 .value=${this.value}
                 @value-changed=${this._valueChanged}
-            ></mushroom-action-picker>
+            ></mushroom-plant-card-color-picker>
         `;
     }
 

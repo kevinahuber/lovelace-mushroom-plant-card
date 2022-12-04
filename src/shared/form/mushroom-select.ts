@@ -5,8 +5,8 @@ import { customElement, property } from "lit/decorators.js";
 import { debounce } from "../../utils/debounce";
 import { nextRender } from "../../utils/render-status";
 
-@customElement("mushroom-select")
-export class MushroomSelect extends SelectBase {
+@customElement("mushroom-plant-card-select")
+export class MushroomPlantCardSelect extends SelectBase {
     // @ts-ignore
     @property({ type: Boolean }) public icon?: boolean;
 
@@ -38,6 +38,6 @@ export class MushroomSelect extends SelectBase {
 
 declare global {
     interface HTMLElementTagNameMap {
-        "mushroom-select": MushroomSelect;
+        "mushroom-plant-card-select": MushroomPlantCardSelect;
     }
 }

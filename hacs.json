@@ -1,6 +1,6 @@
 {
     "name": "Mushroom Plant Card",
-    "filename": "mushroom.js",
+    "filename": "plant-card.js",
     "homeassistant": "2022.4",
     "render_readme": true
 }

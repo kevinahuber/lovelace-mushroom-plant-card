@@ -2,8 +2,8 @@ import { css, CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
 
-@customElement("mushroom-button-group")
-export class MushroomButtonGroup extends LitElement {
+@customElement("mushroom-plant-card-button-group")
+export class MushroomPlantCardButtonGroup extends LitElement {
     @property() public fill: boolean = false;
 
     @property() public rtl: boolean = false;

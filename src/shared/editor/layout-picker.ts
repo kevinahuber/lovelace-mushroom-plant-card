@@ -13,7 +13,7 @@ const ICONS: Record<Layout, string> = {
     horizontal: "mdi:focus-field-horizontal",
 };
 
-@customElement("mushroom-layout-picker")
+@customElement("mushroom-plant-card-layout-picker")
 export class LayoutPicker extends LitElement {
     @property() public label = "";
 
@@ -42,7 +42,7 @@ export class LayoutPicker extends LitElement {
         const value = this.value || "default";
 
         return html`
-            <mushroom-select
+            <mushroom-plant-card-select
                 icon
                 .label=${this.label}
                 .configValue=${this.configValue}
@@ -62,13 +62,13 @@ export class LayoutPicker extends LitElement {
                             </mwc-list-item>
                         `
                 )}
-            </mushroom-select>
+            </mushroom-plant-card-select>
         `;
     }
 
     static get styles(): CSSResultGroup {
         return css`
-            mushroom-select {
+            mushroom-plant-card-select {
                 width: 100%;
             }
         `;

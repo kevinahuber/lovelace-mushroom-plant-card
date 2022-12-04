@@ -7,7 +7,7 @@ export type MushLayoutSelector = {
     "mush-layout": {};
 };
 
-@customElement("ha-selector-mush-layout")
+@customElement("ha-selector-plant-card-layout")
 export class HaMushLayoutSelector extends LitElement {
     @property() public hass!: HomeAssistant;
 
@@ -19,12 +19,12 @@ export class HaMushLayoutSelector extends LitElement {
 
     protected render() {
         return html`
-            <mushroom-layout-picker
+            <mushroom-plant-card-layout-picker
                 .hass=${this.hass}
                 .label=${this.label}
                 .value=${this.value}
                 @value-changed=${this._valueChanged}
-            ></mushroom-layout-picker>
+            ></mushroom-plant-card-layout-picker>
         `;
     }
 

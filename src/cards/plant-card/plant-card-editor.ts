@@ -4,7 +4,7 @@ import { customElement, property, state } from "lit/decorators.js";
 import memoizeOne from "memoize-one";
 import { assert } from "superstruct";
 import setupCustomlocalize from "../../localize";
-import { Action } from "../../utils/form/custom/ha-selector-mushroom-action";
+import { Action } from "../../utils/form/custom/ha-selector-plant-card-action";
 import { GENERIC_LABELS } from "../../utils/form/generic-fields";
 import { HaFormSchema } from "../../utils/form/ha-form";
 import { stateIcon } from "../../utils/icons/state-icon";

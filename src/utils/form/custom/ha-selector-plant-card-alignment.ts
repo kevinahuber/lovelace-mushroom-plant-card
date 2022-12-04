@@ -1,17 +1,17 @@
 import { fireEvent, HomeAssistant } from "custom-card-helpers";
 import { html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
-import "../../../shared/editor/color-picker";
+import "../../../shared/editor/alignment-picker";
 
-export type MushColorSelector = {
-    "mush-color": {};
+export type MushAlignementSelector = {
+    "mush-alignment": {};
 };
 
-@customElement("ha-selector-mush-color")
-export class HaMushColorSelector extends LitElement {
+@customElement("ha-selector-plant-card-alignment")
+export class HaMushAlignmentSelector extends LitElement {
     @property() public hass!: HomeAssistant;
 
-    @property() public selector!: MushColorSelector;
+    @property() public selector!: MushAlignementSelector;
 
     @property() public value?: string;
 
@@ -19,12 +19,12 @@ export class HaMushColorSelector extends LitElement {
 
     protected render() {
         return html`
-            <mushroom-color-picker
+            <mushroom-plant-card-alignment-picker
                 .hass=${this.hass}
                 .label=${this.label}
                 .value=${this.value}
                 @value-changed=${this._valueChanged}
-            ></mushroom-color-picker>
+            ></mushroom-plant-card-alignment-picker>
         `;
     }
 

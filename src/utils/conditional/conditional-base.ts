@@ -5,7 +5,7 @@ import { ConditionalChipConfig, LovelaceChip } from "../lovelace/chip/types";
 import { ConditionalCardConfig } from "../lovelace/types";
 import { checkConditionsMet, validateConditionalConfig } from "./validate-condition";
 
-@customElement("mushroom-conditional-base")
+@customElement("mushroom-plant-card-conditional-base")
 export class ConditionalBase extends ReactiveElement {
     @property({ attribute: false }) public hass?: HomeAssistant;
 
